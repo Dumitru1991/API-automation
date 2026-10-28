@@ -1,4 +1,4 @@
-# API Automation Framework
+# API Automation - Demo Project
 
 A beginner-friendly API test automation project built with Java, REST Assured, Maven, and JUnit 5.
 
