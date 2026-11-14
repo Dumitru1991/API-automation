@@ -1,56 +1,99 @@
-# API Automation - Demo Project
+# API Automation Framework
 
-A beginner-friendly API test automation project built with Java, REST Assured, Maven, and JUnit 5.
+A REST API automation testing project built with Java 21, REST Assured, Maven, and JUnit 5.
+
+The project uses the [Restful Booker API](https://restful-booker.herokuapp.com/) as a demo API to practice automated API testing.
 
 ## Technologies
 
-- **Java 21** — programming language
-- **REST Assured** — API testing library
-- **Maven** — dependency management and build tool
-- **JUnit 5** — test execution and assertions
-- **Restful Booker API** — demo API used for testing
-
-## Tests
-
-The project currently includes:
-
-- **Health Check:** verifies that the API is responding.
-- **Create Booking:** creates a booking and validates the response.
-- **Get Booking:** creates a booking, retrieves it by ID, and validates the returned data.
+- Java 21
+- REST Assured 5.5.0
+- JUnit 5.10.2
+- Maven
+- VS Code
 
 ## Project Structure
 
 ```text
-src/test/java/com/restfulbooker/
-├── config/
-│   └── ApiConfig.java
-├── testdata/
-│   └── BookingData.java
-└── tests/
-    ├── HealthCheckTest.java
-    ├── CreateBookingTest.java
-    └── GetBookingTest.java
+src
+└── test
+    └── java
+        └── com
+            └── restfulbooker
+                ├── config
+                │   └── ApiConfig.java
+                ├── testdata
+                │   └── BookingData.java
+                └── tests
+                    ├── HealthCheckTest.java
+                    ├── CreateBookingTest.java
+                    ├── GetBookingTest.java
+                    ├── CreateBookingNegativeTest.java
+                    ├── GetBookingListTest.java
+                    ├── UpdateBookingTest.java
+                    ├── PartialUpdateBookingTest.java
+                    ├── DeleteBookingTest.java
+                    ├── AuthenticationNegativeTest.java
+                    └── GetNonExistingBookingTest.java
 ```
 
-## How to Run the Tests
+## Test Coverage
 
-Make sure Java 21 and Maven are installed.
+The framework covers:
 
-Run all tests from the project root directory:
+- API health check
+- Creating bookings
+- Retrieving bookings by ID
+- Retrieving and filtering booking lists
+- Full booking updates using PUT
+- Partial booking updates using PATCH
+- Deleting bookings
+- Authentication with invalid credentials
+- Negative scenarios, including empty requests and non-existent booking IDs
+
+## Prerequisites
+
+- Java JDK 21
+- Maven
+- Git
+
+Verify your installation:
 
 ```bash
-mvn test
+java -version
+mvn -version
 ```
 
-## API Under Test
+## Running the Tests
 
-Base URL: https://restful-booker.herokuapp.com
+Clone the repository:
 
-This is a demo API intended for learning and practicing API testing.
+```bash
+git clone https://github.com/Dumitru1991/API-automation.git
+cd API-automation
+```
 
-## Future Improvements
+Run all tests:
 
-- Add negative test cases.
-- Add authentication tests.
-- Improve test reporting.
-- Integrate automated tests with GitHub Actions.
+```bash
+mvn clean test
+```
+
+Run an individual test class:
+
+```bash
+mvn -Dtest=CreateBookingTest test
+```
+
+## Test Results
+
+The full test suite has been executed successfully:
+
+- 11 tests
+- 0 failures
+- 0 errors
+- 0 skipped
+
+## Project Purpose
+
+This project was created to develop practical skills in REST API automation testing, including HTTP methods, request and response validation, authentication, negative testing, and Maven-based test execution.
